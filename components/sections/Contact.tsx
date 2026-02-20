@@ -76,7 +76,6 @@ export default function Contact() {
     social: lang === "fr" ? "Réseaux" : "Social",
     sendTitle: lang === "fr" ? "Envoyer un message" : "Send a message",
 
-    // Terminal
     tx1: lang === "fr" ? "> transmission en cours..." : "> transmitting...",
     tx2:
       lang === "fr"
@@ -84,7 +83,6 @@ export default function Contact() {
         : "> secure channel established",
     tx3: lang === "fr" ? "> message délivré ✓" : "> message delivered ✓",
 
-    // Form labels
     nameLabel: lang === "fr" ? "Nom" : "Name",
     namePh: lang === "fr" ? "Ex: Stephanie" : "e.g., Stephanie",
 
@@ -97,12 +95,10 @@ export default function Contact() {
     minChars:
       lang === "fr" ? "Minimum 10 caractères." : "Minimum 10 characters.",
 
-    // Submit
     sending: lang === "fr" ? "Envoi..." : "Sending...",
     send: lang === "fr" ? "Envoyer" : "Send",
     sentOk: lang === "fr" ? "Message envoyé ✅" : "Message sent ✅",
 
-    // Errors
     checkFields:
       lang === "fr"
         ? "Vérifie les champs (nom, email, message)."
@@ -120,20 +116,16 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
 
-  // status d'envoi (API)
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
   const [errorMsg, setErrorMsg] = useState("");
 
-  // Animation "transmission"
   const [showTx, setShowTx] = useState(false);
-  const [txStep, setTxStep] = useState(0); // 0..3
+  const [txStep, setTxStep] = useState(0);
 
-  // disponibilité jour/nuit (heure Paris)
   const [availability, setAvailability] = useState<"day" | "night">("day");
 
-  // Timers
   const step2Timer = useRef<number | null>(null);
   const step3Timer = useRef<number | null>(null);
   const hideTimer = useRef<number | null>(null);
@@ -146,7 +138,6 @@ export default function Contact() {
     );
   }, [name, fromEmail, message]);
 
-  // calcule dispo en fonction de l'heure à Paris (6h-20h)
   useEffect(() => {
     function computeAvailability() {
       const now = new Date();
@@ -271,7 +262,6 @@ export default function Contact() {
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 md:items-stretch">
-        {/* LEFT */}
         <div className="glass glow-hover p-6 h-full flex flex-col">
           <div className="flex items-start justify-between gap-3">
             <p className="text-sm font-semibold text-white/85">{t.details}</p>
@@ -292,7 +282,6 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Email */}
           <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-5">
             <p className="text-xs text-white/50">{t.email}</p>
             <p className="mt-2 break-all font-mono text-lg text-white/90">
@@ -317,7 +306,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Social */}
           <div className="mt-6">
             <p className="text-xs text-white/50">{t.social}</p>
 
@@ -355,11 +343,9 @@ export default function Contact() {
           <div className="mt-auto" />
         </div>
 
-        {/* RIGHT */}
         <div className="glass glow-hover p-6 h-full flex flex-col justify-center">
           <p className="text-sm font-semibold text-white/85">{t.sendTitle}</p>
 
-          {/* Transmission */}
           {showTx && (
             <div className="mt-4 rounded-xl border border-white/10 bg-black/40 p-4">
               <p className="font-mono text-xs text-cyan-200/90">

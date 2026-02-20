@@ -9,8 +9,6 @@ type Payload = {
   message: string;
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function isValidEmail(v: string) {
   return /\S+@\S+\.\S+/.test(v.trim());
 }
@@ -39,7 +37,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Email invalide." }, { status: 400 });
     }
     if (message.length < 10) {
-      return NextResponse.json({ error: "Message trop court." }, { status: 400 });
+      return NextResponse.json(
+        { error: "Message trop court." },
+        { status: 400 }
+      );
     }
 
     const to = process.env.CONTACT_TO;
@@ -52,6 +53,8 @@ export async function POST(req: Request) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(apiKey);
 
     const subject = `Portfolio — Nouveau message (${name})`;
     const text = `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`;

@@ -13,7 +13,6 @@ export default function Home() {
   const [showBtn, setShowBtn] = useState(false);
   const lastClickRef = useRef<number>(0);
 
-  // 🔥 Ordre EXACT de remontée
   const sectionOrder = [
     "contact",
     "projets",
@@ -43,7 +42,6 @@ export default function Home() {
   function scrollStepUp() {
     const scrollY = window.scrollY + 120;
 
-    // On détecte dans quelle section on est actuellement
     for (let i = 0; i < sectionOrder.length; i++) {
       const id = sectionOrder[i];
       const el = document.getElementById(id);
@@ -52,13 +50,11 @@ export default function Home() {
       const top = el.getBoundingClientRect().top + window.scrollY;
 
       if (scrollY >= top) {
-        // On va à la section suivante dans l'ordre
         const next = sectionOrder[i + 1];
 
         if (next) {
           scrollToId(next);
         } else {
-          // Si on est déjà à hero → navbar (top)
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
@@ -66,7 +62,6 @@ export default function Home() {
       }
     }
 
-    // Si aucune section détectée → top
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -75,7 +70,6 @@ export default function Home() {
     const delta = now - lastClickRef.current;
     lastClickRef.current = now;
 
-    // Double click → top direct
     if (delta < 300) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -117,7 +111,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 🔥 Smart Button */}
       <div
         className={`fixed bottom-8 right-8 z-50 transition-all duration-300 ${
           showBtn
@@ -133,7 +126,6 @@ export default function Home() {
                      transition hover:scale-[1.05] active:scale-[0.95]
                      hover:border-pink-300/40 overflow-hidden"
         >
-          {/* Glow */}
           <span
             aria-hidden="true"
             className="absolute -inset-2 rounded-full blur-xl opacity-70
@@ -141,7 +133,6 @@ export default function Home() {
                            radial-gradient(circle_at_70%_70%,rgba(167,139,250,0.28),transparent_55%)]"
           />
 
-          {/* Icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

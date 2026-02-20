@@ -6,7 +6,6 @@ import { useState } from "react";
 export default function Hero() {
   const { lang } = useLanguage();
 
-  // ✅ effet pulse au clic (ne change rien d’autre)
   const [downloading, setDownloading] = useState(false);
   function triggerDownloadPulse() {
     setDownloading(true);
@@ -88,7 +87,6 @@ export default function Hero() {
 
   return (
     <section className="mt-14 grid items-center gap-10 md:grid-cols-2">
-      {/* LEFT */}
       <div>
         <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-3 py-1">
           <span className="avail-dot" aria-hidden="true" />
@@ -153,7 +151,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* RIGHT */}
       <div className="glass glow-hover p-6">
         <div className="flex items-center justify-between">
           <p className="text-sm font-semibold text-white/85">{t.rightTitle}</p>
@@ -163,7 +160,6 @@ export default function Hero() {
         </div>
 
         <div className="mt-5 grid gap-4">
-          {/* Domaines & niveaux */}
           <div className="glass p-5">
             <div className="flex items-center justify-between">
               <p className="text-xs text-white/50">{t.blockTitle}</p>
@@ -203,7 +199,6 @@ export default function Hero() {
                       </span>
                     </div>
 
-                    {/* barre décorative */}
                     <div className="mt-3 h-2 overflow-hidden rounded-full border border-white/10 bg-black/30">
                       <div
                         className={[
@@ -223,7 +218,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* En ce moment */}
           <div className="glass p-5">
             <p className="text-xs text-white/50">{t.nowTitle}</p>
             <p className="mt-2 font-mono text-sm text-white/80">{t.nowLine1}</p>

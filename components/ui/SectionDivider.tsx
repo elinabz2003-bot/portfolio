@@ -21,17 +21,14 @@ export default function SectionDivider({ accent = "cyan" }: Props) {
 
   return (
     <div className="my-16 flex items-center gap-4">
-      {/* ligne gauche */}
       <div
         className={`h-px flex-1 bg-gradient-to-r from-transparent ${accentClass} to-transparent ${glowClass}`}
       />
 
-      {/* point central */}
       <div
         className={`h-2 w-2 rounded-full bg-cyan-300/70 ${glowClass} animate-pulse`}
       />
 
-      {/* ligne droite */}
       <div
         className={`h-px flex-1 bg-gradient-to-r from-transparent ${accentClass} to-transparent ${glowClass}`}
       />

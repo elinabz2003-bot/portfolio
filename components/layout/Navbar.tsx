@@ -28,7 +28,6 @@ export default function Navbar() {
     []
   );
 
-  // Lock scroll when drawer open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -38,7 +37,6 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Highlight active section on scroll (IntersectionObserver)
   useEffect(() => {
     const els = ids
       .map((id) => document.getElementById(id))
@@ -48,7 +46,6 @@ export default function Navbar() {
 
     const obs = new IntersectionObserver(
       (entries) => {
-        // On prend l’entrée la plus visible
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
@@ -56,7 +53,6 @@ export default function Navbar() {
         if (visible?.target?.id) setActive(`#${visible.target.id}`);
       },
       {
-        // déclenche quand le haut de section arrive dans la zone centrale
         root: null,
         threshold: [0.15, 0.25, 0.35, 0.5, 0.65],
         rootMargin: "-25% 0px -55% 0px",
@@ -78,12 +74,9 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 -mx-6 px-6 py-4">
-      {/* bande glass pour le sticky */}
       <div className="glass border border-white/10 px-4 py-3">
         <div className="flex items-center justify-between">
-          {/* Avatar + Nom */}
           <div className="flex items-center gap-3">
-            {/* Avatar + visible : 48px mobile, 56px desktop */}
             <div className="relative h-12 w-12 overflow-hidden rounded-full border border-white/10 md:h-14 md:w-14">
               <Image
                 src="/profile.jpg"
@@ -106,7 +99,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center gap-2 text-sm md:flex">
             {LINKS.map((l) => {
               const isActive = active === l.href;
@@ -126,7 +118,6 @@ export default function Navbar() {
               );
             })}
 
-            {/* 🌍 BOUTON LANGUE */}
             <button
               onClick={toggle}
               className="ml-3 rounded-full border border-violet-400/30 bg-violet-400/15 px-4 py-2 text-sm font-semibold text-violet-200 transition hover:bg-violet-400/25 hover:shadow-[0_0_30px_rgba(167,139,250,0.25)]"
@@ -135,7 +126,6 @@ export default function Navbar() {
             </button>
           </nav>
 
-          {/* Mobile burger */}
           <button
             type="button"
             className="md:hidden inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80 hover:bg-white/10"
@@ -146,10 +136,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile overlay + drawer */}
       {open && (
         <div className="fixed inset-0 z-50 md:hidden">
-          {/* Overlay */}
           <div
             className="absolute inset-0 bg-black/65"
             onClick={closeAfterNav}
@@ -177,7 +165,6 @@ export default function Navbar() {
                 </a>
               ))}
             </div>
-            {/* Bouton langue mobile */}
             <button
               onClick={toggle}
               className="mt-6 w-full rounded-full border border-violet-400/30 bg-violet-400/15 px-4 py-2 text-sm font-semibold text-violet-200"

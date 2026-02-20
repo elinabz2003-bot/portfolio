@@ -10,7 +10,6 @@ type Certification = {
   org: string;
   status: CertStatus;
 
-  // ✅ Bilingue
   dateFr?: string;
   dateEn?: string;
   descFr: string;
@@ -206,7 +205,7 @@ function statusLabel(status: CertStatus, lang: "fr" | "en") {
 }
 
 export default function CertificationsPage() {
-  const { lang } = useLanguage(); // ✅ connecté à ton bouton FR/EN
+  const { lang } = useLanguage();
 
   const countObtenues = CERTS.filter((c) => c.status === "obtenue").length;
   const countEnCours = CERTS.filter((c) => c.status === "en_cours").length;
@@ -217,7 +216,6 @@ export default function CertificationsPage() {
       <div className="pointer-events-none fixed inset-0 grid-overlay" />
 
       <div className="relative mx-auto max-w-6xl px-6 py-10">
-        {/* Top */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h1 className="text-3xl font-semibold tracking-tight text-white">
@@ -233,7 +231,6 @@ export default function CertificationsPage() {
           </Link>
         </div>
 
-        {/* Quick stats */}
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           <div className="glass glow-hover p-5">
             <p className="text-xs text-white/50">
@@ -257,7 +254,6 @@ export default function CertificationsPage() {
           </div>
         </div>
 
-        {/* List */}
         <section className="mt-10">
           <div className="flex items-end justify-between gap-4">
             <div>
@@ -281,7 +277,6 @@ export default function CertificationsPage() {
                   <div>
                     <p className="text-sm font-semibold text-white/90">{c.title}</p>
 
-                    {/* mini ligne “ice” sous le titre */}
                     <div className="mt-2 h-px w-24 bg-gradient-to-r from-cyan-300/60 to-transparent" />
 
                     <p className="mt-2 text-xs text-white/50">{c.org}</p>
@@ -297,7 +292,6 @@ export default function CertificationsPage() {
                   </span>
                 </div>
 
-                {/* image badge/certif */}
                 {c.image ? (
                   <div className="mt-4 flex items-center gap-4">
                     <img
@@ -353,7 +347,6 @@ export default function CertificationsPage() {
             ))}
           </div>
 
-          {/* Note */}
           <p className="mt-8 text-xs text-white/40">
             {lang === "fr"
               ? "Note : Les preuves sont fournies via PDF, badge ou lien public vérifiable."

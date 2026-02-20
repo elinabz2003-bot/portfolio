@@ -61,7 +61,6 @@ export default function About() {
   return (
     <section id="about" className="mt-20">
       <div className="grid gap-10 md:grid-cols-2">
-        {/* LEFT */}
         <div>
           <h2 className="text-xl font-semibold text-white/90">{t.title}</h2>
 
@@ -76,13 +75,10 @@ export default function About() {
           </p>
         </div>
 
-        {/* RIGHT */}
         <div className="glass glow-hover p-6">
           <p className="text-sm font-semibold text-white/85">{t.snapshot}</p>
 
-          {/* Terminal box */}
           <div className="mt-5 rounded-2xl border border-white/10 bg-black/40 p-4 terminal-scanline">
-            {/* Top bar */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" />
@@ -98,9 +94,7 @@ export default function About() {
               </span>
             </div>
 
-            {/* Content */}
             <div className="mt-4 space-y-3 font-mono text-[13px] leading-relaxed">
-              {/* Prompt helper */}
               <div className="text-white/80">
                 <span className="text-cyan-200/90">elina@ceri</span>
                 <span className="text-white/50">:</span>

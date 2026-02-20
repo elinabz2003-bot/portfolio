@@ -130,7 +130,6 @@ export default function Projets() {
                 ))}
               </ul>
 
-              {/* ✅ CTA aligné à droite + style rose/pink */}
               <div className="mt-6 flex justify-end">
                 <span className="rounded-full border border-pink-400/30 bg-pink-400/15 px-4 py-2 text-sm font-semibold text-pink-100 transition hover:bg-pink-400/25 hover:shadow-[0_10px_40px_rgba(244,114,182,0.25)]">
                   {cta}

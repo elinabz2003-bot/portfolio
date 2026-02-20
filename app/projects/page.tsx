@@ -106,7 +106,6 @@ export default function ProjectsPage() {
       <div className="pointer-events-none fixed inset-0 grid-overlay" />
 
       <div className="relative mx-auto max-w-6xl px-6 py-10">
-        {/* HEADER */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h1 className="text-3xl font-semibold tracking-tight text-white">
@@ -122,7 +121,6 @@ export default function ProjectsPage() {
           </Link>
         </div>
 
-        {/* STATS */}
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           <div className="glass glow-hover p-5">
             <p className="text-xs text-white/50">
@@ -152,7 +150,6 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* LIST */}
         <section className="mt-10">
           <div className="flex items-end justify-between gap-4">
             <div>

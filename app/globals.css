@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
-/* --- Palette (noir spatial unique) --- */
 :root {
-  --bg-0: #05080f;   /* noir spatial */
-  --bg-1: #0b1220;   /* bleu nuit profond */
-  --text: #e6edf3;   /* blanc cassé */
-  --muted: #94a3b8;  /* gris bleuté */
+  --bg-0: #05080f;
+  --bg-1: #0b1220;
+  --text: #e6edf3;
+  --muted: #94a3b8;
 }
 
 @theme inline {
@@ -27,7 +26,6 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Fond futuriste : halos + dégradé subtil --- */
 .bg-cosmic {
   background:
     radial-gradient(900px circle at 20% 25%, rgba(34, 211, 238, 0.12), transparent 55%),
@@ -37,7 +35,6 @@ body {
     var(--bg-0);
 }
 
-/* --- Grille ultra légère (vraiment subtile) --- */
 .grid-overlay {
   background-image:
     linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
@@ -47,7 +44,6 @@ body {
   opacity: 0.55;
 }
 
-/* --- Cards glass (verre) --- */
 .glass {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(148, 163, 184, 0.16);
@@ -57,7 +53,6 @@ body {
   border-radius: 18px;
 }
 
-/* --- Hover glow (futuriste, mais pas trop flashy) --- */
 .glow-hover {
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
 }
@@ -69,7 +64,6 @@ body {
     0 18px 70px rgba(124, 58, 237, 0.10);
 }
 
-/* --- Petit effet "lumière" sur les boutons --- */
 .btn-soft {
   border: 1px solid rgba(255, 255, 255, 0.10);
   background: rgba(255, 255, 255, 0.06);
@@ -86,7 +80,7 @@ body {
   position: absolute;
   inset: -8px;
   border-radius: 9999px;
-  border: 1px solid rgba(34, 211, 238, 0.55); /* cyan cohérent avec ton thème */
+  border: 1px solid rgba(34, 211, 238, 0.55);
   opacity: 0;
   pointer-events: none;
   animation: sonarPing 1.2s ease-out infinite;
