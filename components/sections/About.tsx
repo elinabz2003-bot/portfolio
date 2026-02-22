@@ -31,7 +31,7 @@ export default function About() {
         ? " afin de renforcer mes compétences sur des projets réels. À long terme, je souhaite intégrer un Master orienté cybersécurité, réseaux ou développement pour continuer à approfondir mes connaissances techniques."
         : " to strengthen my skills on real-world projects. In the long term, I plan to pursue a Master’s degree focused on cybersecurity, networking, or software development to keep deepening my technical expertise.",
 
-    snapshot: "Profile snapshot",
+    snapshot: "Profile",
     chip: "snapshot",
 
     whoamiResult:
